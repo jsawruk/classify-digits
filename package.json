@@ -1,0 +1,22 @@
+{
+  "name": "classify-digits",
+  "version": "0.0.0",
+  "description": "MNIST digit classifier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsawruk/classify-digits.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsawruk/classify-digits/issues"
+  },
+  "homepage": "https://github.com/jsawruk/classify-digits",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
