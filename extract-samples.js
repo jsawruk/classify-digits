@@ -61,10 +61,11 @@ var writeBufferToPNG = function(buffer, pngFilename) {
 
       var index = (png.width * y + x) << 2;
 
-      png.data[index] = buffer[bufferIndex];      // R
-      png.data[index + 1] = buffer[bufferIndex];  // G
-      png.data[index + 2] = buffer[bufferIndex];  // B
-      png.data[index + 3] = 0xFF;                 // A
+      // In the MNIST data, 0 = white, 255 = black, opposite of RGBA
+      png.data[index] = 255 - buffer[bufferIndex];      // R
+      png.data[index + 1] = 255 - buffer[bufferIndex];  // G
+      png.data[index + 2] = 255 - buffer[bufferIndex];  // B
+      png.data[index + 3] = 0xFF;                       // A
 
       bufferIndex++;
 
