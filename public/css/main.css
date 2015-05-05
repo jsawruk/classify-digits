@@ -1,0 +1,14 @@
+/* COMMON */
+body {
+  margin: 20px;
+}
+
+/* TEST IMAGES */
+#test-images {
+  overflow: hidden;
+  width: 50%;
+}
+
+#test-images .image {
+  float: left;
+}
