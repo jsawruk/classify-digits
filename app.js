@@ -5,7 +5,7 @@ var fs = require('fs');
 var app = express();
 
 var testImages = fs.readdirSync('public/test-images');
-testImages = testImages.filter(function(file) { return file.substr(-4) === '.png';});
+testImages = testImages.filter(function(file) { return file.substr(-4) === '.png'});
 
 // Set Handlebars as template engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));

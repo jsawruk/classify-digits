@@ -44,6 +44,11 @@ var readFile = function(fileDescriptor, fileIndex) {
   fs.read(fileDescriptor, buffer, 0, bufferSize, startOffset, function(error, bytesRead){
 
     var outputFilename = util.format('%d.png', fileIndex);
+
+    if (fileIndex < 10) {
+      outputFilename = util.format('0%d.png', fileIndex);
+    }
+
     writeBufferToPNG(buffer, outputFilename);
 
   });

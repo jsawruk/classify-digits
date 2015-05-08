@@ -6,7 +6,7 @@ _ = require("lodash");
 // Training data files
 var imageFile = 'data/train-images-idx3-ubyte';
 var labelFile = 'data/train-labels-idx1-ubyte';
-var networkFile = 'data/network.json';
+var networkFile = 'nets/network.json';
 
 // Image dimensions
 var imageWidth = 28;
@@ -19,7 +19,7 @@ var imageOffset = 16;
 var labelOffset = 8;
 
 // Number of images to extract from MNIST test file (max = 10000)
-var numberOfImagesToExtract = 10;
+var numberOfImagesToExtract = 600;
 
 // Array to hold the training data
 // Each entry is an object: {image: , label: }
@@ -127,11 +127,11 @@ var trainNetwork = function() {
 
   });
 
-  net.train(netTraining);
+  net.train(netTraining, {iterations: 10, log: true, logPeriod: 10, learningRate: 0.05});
 
   // Save the training results for later use
-  var netJson = JSON.stringify(net.toJSON());
-  fs.writeFile(networkFile, netJson);
+  var networkJson = JSON.stringify(net.toJSON());
+  fs.writeFile(networkFile, networkJson);
 };
 
 
