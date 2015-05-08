@@ -1,8 +1,11 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');  // Handlebars template engine
 var fs = require('fs');
+var Classifier = require('./lib/classify.js').Classifier;
 
 var app = express();
+
+var classifier = new Classifier();
 
 var testImages = fs.readdirSync('public/test-images');
 testImages = testImages.filter(function(file) { return file.substr(-4) === '.png'});
@@ -17,6 +20,13 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.render('home', {
     images: testImages
+  });
+});
+
+app.get('/classify', function(req, res){
+
+  classifier.classifyFile('public/' + req.query.file).then(function(result){
+    res.send(result);
   });
 });
 
