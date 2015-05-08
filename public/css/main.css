@@ -3,6 +3,11 @@ body {
   margin: 20px;
 }
 
+.thumbnail {
+  padding: 0;
+  border: none;
+}
+
 /* TEST IMAGES */
 #test-images {
   overflow: hidden;
